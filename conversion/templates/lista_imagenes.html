@@ -1,0 +1,21 @@
+<!-- En conversion/templates/conversion/lista_imagenes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Imágenes</title>
+</head>
+<body>
+    <h2>Lista de Imágenes</h2>
+    {% for imagen in imagenes %}
+        <img src="{{ imagen.archivo.url }}" alt="Imagen">
+        {% if imagen.pdf %}
+            <a href="{{ imagen.pdf.url }}" target="_blank">Descargar PDF</a>
+        {% else %}
+            <p>Aún no convertido a PDF</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
